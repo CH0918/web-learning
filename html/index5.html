@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">
+    <!-- 注释 -->
+    <!-- <p>文本标签1</p>
+    <p></p>
+    <p><span>
+      <i class="is-i">11111</i>
+    </span></p> -->
+    <h1>一级标题</h1>
+    <h2>
+      <span>二级标题</span>
+      <p>
+        p标签
+        <span href="">a标签</span>
+        <span href="">a标签</span>
+        <span href="">a标签</span>
+        <button>按钮</button>
+      </p>
+    
+    </h2>
+    <h3>三级标题</h3>
+    <h4>四级标题</h4>
+  </div>
+  <script type="text/javascript">
+    // var div = document.getElementsByClassName('box')[0];
+    // var lastP = div.lastElementChild;
+    // var ii = document.querySelector('.is-i');
+    var h2 = document.getElementsByTagName('h2')[0];
+    var h1 = document.getElementsByTagName('h1')[0];
+    var h3 = document.getElementsByTagName('h3')[0];
+    var h4 = document.getElementsByTagName('h4')[0];
+    // 1.原型上编程 遍历一个父元素，找到他的子元素节点；如果有传参数num，则找到第num个子元素，否则返回元素类数组
+    Element.prototype.getEle = function() {
+      var args = arguments,
+          childNodes = this.childNodes,
+          eleArr = [];
+      for (var i = 0; i < childNodes.length; i++) {
+        var child = childNodes[i];
+        if (child.nodeType === 1) {
+          eleArr.push(child);
+        }
+      }
+      if (args.length === 0) {
+        return eleArr;
+      } else if (Object.prototype.toString.call(args[0]) !== '[object Number]') {
+        throw new Error('参数错误，请传一个数字类型的参数');
+      } else {
+        return eleArr[args[0]];
+      }
+    }
+
+    // 2.原型上编程 找到元素的第n层父元
+    Element.prototype.getParentEle = function(n) {
+      var p = this;
+      while (n--) {
+        p = p.parentNode;
+        if(!p) break;
+      }
+      return p === this ? undefined : p;
+    }
+
+    // 3.原型上编程 hasChildren 判断父元素有没有子元素节点
+    Element.prototype.hasChildren = function() {
+      var nodes = this.childNodes;
+      for (var i = 0; i < nodes.length; i++) {
+        if (nodes[i].nodeType === 1) {
+          return true;
+        }
+      }
+      return false;
+    } 
+    // 4.在原型上编程，寻找兄弟元素节点，参数N为正，找之后得第N个，负数，找之前的N个，为0找到自己
+    Element.prototype.findSibling = function(n) {
+      var targetEle;
+      if (n > 0) {
+        if (targetEle === null) return null;
+        while (n--) {
+          targetEle = targetEle ? targetEle.nextElementSibling : this.nextElementSibling; 
+        }
+      } else if (n === 0) {
+        targetEle = this;
+      } else {
+        n = Math.abs(n);
+        while (n--) {
+          if (targetEle === null) return null;
+          targetEle = targetEle ? targetEle.previousElementSibling : this.previousElementSibling;
+          
+        }
+      }
+      return targetEle;
+    }
+    // 5.遍历父级元素下面所有的子元素节点
+    Element.prototype.forEachEle = function() {
+      // console.log(arguments.callee);
+      var children = this.children;
+      for (var i = 0; i < children.length; i++) {
+        var item = children[i];
+        if (item.hasChildren()) {
+          // arguments.callee()
+          item.forEachEle();
+        } else {
+          console.log(item.nodeName );
+        }
+      }
+    }
+    // 6.js编写一个片段
+    function createFragment() {
+      var div = document.getElementsByTagName('div')[0];
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 10; i++) {
+        var p = document.createElement('p');
+        p.innerHTML = '这是第' + i + '个p';
+        frag.appendChild(p);
+      }
+      div.appendChild(frag);
+    }
+    // 7.原型上封装insertAfter
+    Node.prototype.insertAfter = function(newNode, refNode) {
+      if (!refNode.nextElementSibling) {
+        this.appendChild(newNode);
+      } else {
+        var nextNode = refNode.nextElementSibling;
+        this.insertBefore(newNode, nextNode);
+      }
+    }
+    function test1() {
+      var box = document.getElementsByClassName('box')[0];
+      var newNode = document.createElement('div');
+      newNode.innerHTML = '这是newNode';
+      box.insertAfter(newNode, h4)
+    }
+    // 8.元素逆序
+    function reverseEle() {
+      // var box = document.querySelectorAll('.box');
+      var box = document.getElementsByTagName('div')[0];
+      var elementList = box.children;
+      var arr = Array.prototype.slice.call(elementList);
+      arr.reverse();
+      box.innerHTML = '';
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < arr.length; i++) {
+        frag.appendChild(arr[i]);
+      }
+      box.appendChild(frag);
+    }
+
+  </script>
+</body>
+</html>

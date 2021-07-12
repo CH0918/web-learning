@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // var a = [1,2, 3];
+    // var b = a;
+    // // a.push(8);
+    // a = [0,3,2];
+
+    // ++ --
+    // var a = 5,
+    //     b;
+    // b = a++ + 1;
+    // console.log(a, b);
+
+    // 比较运算符
+    
+    // document.write(NaN == NaN);
+    // var i = 0;
+    // for (;++i;) {
+    //   if (i <= 11) {
+    //     console.log(i - 1);
+    //   } else {
+    //     break;
+    //   }
+    // }
+
+    // 倒序
+    // var num = 879;
+    // var a = num % 10;
+    // var b = (num - a) / 10 % 10;
+    // var c = (num - a - b * 10) / 100;
+    // console.log("" + a + b + c);
+
+    // 打印三个数最大的数
+    // var a = 4,
+    //     b = 7,
+    //     c = 10;
+    // var maxNum1 = a > b ? a : b;
+    // var maxNum2 = maxNum1 > c ? maxNum1 : c;
+    // console.log(maxNum2);
+
+    // 打印100以内质数 被1和自身整除
+    // for (var i = 0; i < 100; i++ ) {
+    //   var flag = true;
+    //   for (var j = 2; j < i; j++) {
+    //     if (i % j === 0) {
+    //       flag = false;
+    //       break;
+    //     }
+    //   }
+    //   if (flag) {
+    //     console.log(i);
+    //   }
+    // }
+
+    // 引用类型 object array function RegEx date
+    
+
+    // typeof 检测类型 可能返回 undefined number string boolean object function
+    // typeof(null)  === null; typeof(a) === undefined; typeof(typeof(xxxx)) === string;
+
+    // 显示类型转换
+    // 1.var a = ['5']; // 数字, 字符串数字，null, '', false, true, [x]x是数字或字符串数字 --- 返回数字，其他返回NaN
+    // console.log(typeof(Number(a)) + '-' + Number(a));
+    // 2.var a = false;// 数字，字符串数字，数字开头字符串，[x]x是数字或字符串数字,返回数字 其他返回NaN
+    // console.log(typeof(parseInt(a)) + '-' + parseInt(a));
+    // 3.parseFloat  toFixed();
+    // 4.toString()
+    // 5.Boolean() undefined null '' 0 false -----> 返回false 
+
+    // 斐波那契数列
+    // var num = parseInt(window.prompt('输入整数，求斐波那契第N项的值'));
+    // 1 1 2 3 5 8 
+    
+    // var line = parseInt(prompt("input lines:"));
+    //     var a = 1,
+    //         b = 1;
+    //     for (var i = 0; i < line / 2; i++) {
+    //         document.write(a + "</br>", b + "</br>");
+    //         a = a + b; 
+    //         b = b + a;
+    //     }
+    // fn(undefined, 3);
+    // var fn = function() {
+    //   console.log(1111);
+    // }
+    // function fn(a = 2, b) {
+    //   console.log(arguments[0]);
+    // }
+    
+    // 阶乘
+    // function fact(n) {
+    //   if (n == 1) return 1;
+    //   return n * fact(n - 1);
+    // }
+    // console.log(fact(5));
+    // // 斐波那契数列
+    // function fb(n) {
+    //   if (n <= 2) return 1;
+    //   return fb(n - 1) + fb(n -2);
+    // }
+
+
+    // function test(a) {
+    //   debugger;
+    // console.log(a);
+    // var a = 1;
+    // console.log(a);
+    // function a() {};
+    // console.log(a);
+    // var b = function() {};
+    // console.log(b);
+    // function d() {}
+    // }
+    // test(2);
+
+    // function test(a, b) {
+    //   console.log(a);
+    //   c = 0;
+    //   var c;
+    //   a = 5;
+    //   b = 6;
+    //   console.log(b);
+    //   function b(){};
+    //   function d() {};
+    //   console.log(b)
+    // };
+    
+
+    // var b = 3;
+    // console.log(a);
+    // function a(a) {
+    //   console.log(a);
+    //   var a = 2;
+    //   console.log(a);
+    //   function a() {};
+    //   var b = 5;
+    //   console.log(b);
+    // };
+    // a(1);
+
+    // 1.function a
+    // 2.1
+    // 3.2
+    // 5
+
+    // var a;
+    // function test() {
+    //   console.log('xxx' + a);
+    //   a = 3;
+    // }
+    // console.log(a);
+    // test();
+    // console.log(a);
+
+    // function test() {
+    //   return a;
+    //   a = 1;
+    //   function a() {};
+    //   var a = 2;
+    // }
+    // console.log(test());
+
+    // function test() {
+    //   a = 1;
+    //   function a() {};
+    //   var a = 2;
+    //   return a;
+    // }
+    // console.log(test());
+
+    // a = 1;
+    // function test(e) {
+    //   function e(){};
+    //   arguments[0] = 2;
+    //   console.log(e); // 2
+    //   if(a) {
+    //     var b = 3;
+    //   }
+    //   var c;
+    //   a = 4;
+    //   var a;
+    //   console.log(b); // undefined
+    //   f = 5;
+    //   console.log(c); // undefined
+    //   console.log(a); // 4
+    // }
+    // var a;
+    // test(1);
+
+    // var a = false + 1;
+    // console.log(a);
+    
+    // if((-true) + NaN + '') {
+    //   console.log('hahah');
+    // }
+    // console.log(!!' ' + !!'' - !!true);
+
+    // window.a && (window.a = false);
+    // console.log(window.a);
+
+    
+  </script>
+</body>
+</html>

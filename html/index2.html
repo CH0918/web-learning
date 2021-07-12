@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // var obj = {
+    //   test() {
+
+    //   },
+    //   name: 'zhangsan'
+    // }
+    // console.log(obj);
+
+    // var num = 10;
+    // if (++num == 10) {
+    //   console.log(11111111);
+    // }
+    // function Person() {
+    //   var self = {
+    //     __proto__: Person.prototype,
+    //    name: 'zhangsan',
+    //   };
+    //   return self;
+    // } 
+    // var p = new Person();
+    // console.log(p.name);
+
+  //   ;(function() {
+  //     function Compute() {
+  //       this.add = function(a, b) {
+  //         return a + b;
+  //       }
+  //     }
+  //     // Compute.prototype.add = function add(a, b) {
+  //     //     return a + b;
+  //     //   };
+  //     // Compute.prototype.sub = function sub(a, b) {
+  //     //     return a - b;
+  //     //   };
+  //     window.Compute = Compute;
+  //   }())
+    
+  //   var compute = new Compute();
+  //   // console.log(compute);
+  //   console.log(compute.add(1,8));// 3
+  //   // console.log(compute.sub(1,8));// 3
+
+
+  //   function Person() {
+  //     this.say = function() {
+  //       console.log('hello');
+  //     }
+  //   }
+
+  //  var p = new Person();
+  //  p.say();
+
+    // ;(function test() {
+    //   var a = 0;
+    //   function test2() {
+    //     a++;
+    //     console.log(a);
+    //   }
+    //   window.test2 = test2;
+    // }())
+
+    // test2();
+    // test2();
+    // test2();
+
+    // function Teacher() {
+    //    this.name = 'cangjingkong';
+    //    this.address = {
+    //      province: 'guangdong',
+    //      city: 'guangzhou'
+    //    }
+    //  }
+    //  var teacher = new Teacher();
+
+
+    //  function Student() {
+
+    //  }
+    //  Student.prototype = teacher;
+    //  var student = new Student();
+    //  student.name = 'hahah';
+    //  student.address.province = 'shanghai';
+    //  console.log(student);
+
+    // function Car() {
+    //   this.brand = 'Benz';
+    //   this.age = 10;
+    // }
+    // Car.prototype = {
+    //   brand: 'Mazda',
+    //   intro: function() {
+    //     // console.log('I am a ' + this.brand);
+    //     // console.log(this);
+    //     this.age++;
+    //     console.log(this.age);
+    //   }
+    // }
+    // var car = new Car();
+    // // console.log(car.brand);
+    // // console.log(car.intro());
+    // car.intro();
+    // car.intro();
+    // car.intro();
+
+    // function test() {
+    //   console.log('test');
+    // }
+    // test.call();
+
+    // function Car(name, color) {
+    //   this.brand = name;
+    //   this.color = color;
+    // }
+    // var newCar = {};
+    // var newCar2 = {};
+    // Car.call(newCar, 'benz', 'red');
+    // Car.apply(newCar2, ['mazida', 'green']);
+    // console.log('newCar2 == ', newCar2);
+    // console.log(newCar);
+
+    // 只有加减方法
+    // function Compute() {
+    //   console.log('this === ', this);
+    //   this.plus = function(a, b) {
+    //     return a + b;
+    //   }
+    //   this.minus = function(a, b) {
+    //     return a - b;
+    //   }
+    // }
+
+    // function FullCompute() {
+    //   Compute.apply(this);
+    //   this.mul = function(a, b) {
+    //     return a * b;
+    //   }
+    //   this.div = function(a, b) {
+    //     return a / b;
+    //   }
+    // }
+    // var fullCompute = new FullCompute();
+    // console.log(fullCompute.plus(1, 2));
+    // console.log(fullCompute.mul(1, 2));
+
+
+
+    // function Car(brand, color, displacement) {
+    //   this.brand = brand;
+    //   this.color = color;
+    //   this.displacement = displacement;
+    // }
+    // function Person(name, age) {
+    //   Car.apply(this, ['宋 plus DMI', '银色', '1.5T']);
+    //   this.name = name;
+    //   this.age = age;
+    //   this.buy = function() {
+    //     console.log(`年龄为${this.age}岁的${this.name}买了一辆排量为${this.displacement}的${this.color}${this.brand}轿车`);
+    //   }
+    // }
+
+    // var xiaoming = new Person('小明', 25);
+    // xiaoming.buy();
+
+    // function Teacher() {
+    //   this.tname = 'Zhangsan';
+    // }
+    // Teacher.prototype = {
+    //   skill: 'teaching'
+    // }
+    // var t = new Teacher();
+    // console.log('teacher == ', t);
+
+    // function Buffer() {};
+    // Buffer.prototype = Teacher.prototype;
+    // var buffer = new Buffer();
+
+
+    // Student.prototype = buffer;
+    // function Student() {
+    //   this.sname = 'lisi';
+    // }
+    // var s = new Student();
+    // Student.prototype.age = 18;
+
+    // console.log('student == ', s);
+
+    // function Teacher() {
+    //   this.tSkill = 'teaching';
+    // }
+    // Teacher.prototype.tSkill = 'teaching';
+
+
+    // inherit(Student, Teacher);
+    // function Student() {
+    // }
+    // var s = new Student();
+    // console.log(s);
+
+
+
+    // function inherit(Target, Origin) {
+    //   function Buffer(){};
+    //   Buffer.prototype = Origin.prototype;
+    //   Target.prototype = new Buffer();
+    // }
+
+
+    // 企业级继承封装
+    // var inherit = (function() {
+    //   var Buffer = function (){};
+    //   return function(Target, Origin) {
+    //     Buffer.prototype = Origin.prototype;
+    //     Target.prototype = new Buffer();
+    //     Target.prototype.constructor = Target;
+    //     Target.super_class = Origin;
+    //   }
+    // }());
+    
+    // function Teacher() {
+    //   this.tSkill = 'teaching';
+    // }
+    // Teacher.prototype.tSkill = 'teaching';
+
+
+    // inherit(Student, Teacher);
+    // function Student() {
+    // }
+    // var s = new Student();
+    // console.log(s);
+
+
+    // var obj = {
+    //   eat() {
+    //     console.log('吃东西');
+    //     return this;
+    //   },
+    //   sleep() {
+    //     console.log('睡大觉');
+    //     return this;
+    //   }
+    // }
+    // obj.eat().sleep();
+
+
+    // var obj = {
+    //   name: 'zhangsan',
+    //   age: 20,
+    //   weight: 140
+    // };
+    // for (key in obj) {
+    //   console.log('%s => %s', key, obj[key]);
+    // }
+
+    // // hasOwnProperty
+    // var obj = {
+    //   name: 'huangdongj',
+    //   age: 20
+    // };
+    // console.log(obj.hasOwnProperty('name'));
+
+
+    // function Car() {
+    //   this.brand = 'Mazda',
+    //   this.color = 'red'
+    // }
+    // Car.prototype = {
+    //   long: 5,
+    //   width: 2 
+    // }
+    // var car = new Car();
+    // for (key in car) {
+    //   if (car.hasOwnProperty(key)) {
+    //     console.log('%s -> %s', key, car[key]);
+    //   }
+    // }
+
+    // in
+    // var car = {
+    //   brand: 'Benz',
+    //   color: 'red'
+    // }
+    // console.log('displacement' in car);
+    // function Car() {
+    //   this.brand = 'Benz'
+    // }
+    // Car.prototype = {
+    //   displacement: '1.5t'
+    // }
+    // var car = new Car();
+    // console.log('displacement' in car); // hasOwnProperty 排除原型属性 in 不排除原型属性
+
+    // instanceof A instanceof B A对象上的原型里有B对象的原型
+    // function Car() {
+
+    // }
+    // var car = new Car();
+    // console.log(car instanceof Object);
+    // console.log([] instanceof Array);
+    // console.log({} instanceof Object);
+
+    // var arr = [];
+    // console.log(arr.constructor === Array);
+    // console.log(arr instanceof Array);
+    // var str = Object.prototype.toString.call(arr);
+    // console.log(str);
+
+    // console.log(Object.prototype.toString('1,23'));
+
+    // var arr = [1, 2, 3];
+    // console.log(arr.toString());
+
+    // 总结
+    // 1.全局 this -> window
+    // 2.预编译函数 this -> window
+    // 3,实例对象 this -> 实例本身
+    // call/apply 可以改变this指向
+
+    // callee/caller
+    // function test(a, b, c) {
+    //   b = 10;
+    //   console.log(arguments);
+    //   console.log(arguments.callee === test);
+    // }
+    // test(1,2);
+    // function sum(n) {
+    //   if (n <= 1) return 1;
+    //   return n + sum(n - 1)
+    // }
+    // console.log(sum(10));
+
+    // var sum = (function calcSum(n){
+    //   if (n <= 1) return 1;
+    //   return n + calcSum(n - 1);
+    // })(100);
+    // console.log(sum);
+    // function test() {
+    //   console.log('running...');
+    // }
+    // test();
+
+    // function test1() {
+    //   console.log(test1.caller);
+    // }
+    // function test2() {
+    //   test1();
+    // }
+    // test2();
+
+    // function foo() {
+    //   bar.apply(null, arguments);
+    // }
+    // function bar() {
+    //   console.log(arguments);
+    // }
+    // foo(1, 2, 3);
+
+    // var a = 1;
+    // function test() {
+    //   var a = 2;
+    //   this.a = 3;
+    //   console.log(a);
+    // }
+    // test(); // a = 3;    2
+    // new test();//        2
+    // console.log(a);      //3
+
+    // var a = 5;
+    // function test() {
+    //   a = 0;
+    //   console.log(a);
+    //   console.log(this.a);
+    //   var a;
+    //   console.log(a);
+    // }
+    // test();
+    // new test();
+
+    // 
+    function deepClone(origin, target) {
+      var tag = target || {},
+          toStr = Object.prototype.toString,
+          arrType = '[object, Array]';
+      for (key in origin) {
+        if (!origin.hasOwnProperty(key)) continue;
+        if (typeof origin[key] !== 'object' && origin[key] !== null) {
+          tag[key] = origin[key];
+        } else {
+          tag[key] = toStr.call(origin[key]) === arrType ? [] : {};
+          deepClone(origin[key], tag[key]);
+        }
+      }      
+      return tag;
+    }
+
+    var person1 = {
+      name: 'zhangsan',
+      age: 10,
+      children: [
+        {
+          tall: 170
+        },
+        {tall: 180}
+      ],
+      address: {
+        province: 'guangdong'
+      }
+    }
+    person1.__proto__ = {
+      abc: 'abc'
+    }
+    var person2 = deepClone(person1);
+    person2.name = 'wangba';
+    console.log(person1, person2);
+
+  </script>
+</body>
+</html>

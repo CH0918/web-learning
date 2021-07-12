@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选项卡</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .clearfix::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    .tab-wrapper {
+      width: 180px;
+      margin: 100px auto;
+    }
+    .tabs .tab-item{
+      float: left;
+      width: 60px;
+      height: 30px;
+      line-height: 30px;
+      
+      text-align: center;
+      cursor: pointer;
+    }
+    .content {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      height: 200px;
+      border: 1px solid #000;
+    }
+    .content-item {
+      display: none;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      line-height: 200px;
+      font-size: 50px;
+      font-weight: 500;
+    }
+    .cur {
+      display: block;
+    }
+    .active {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab-wrapper">
+    <div class="tabs clearfix">
+      <ul class="tab-list">
+        <li class="tab-item active">选项1</li>
+        <li class="tab-item">选项2</li>
+        <li class="tab-item">选项3</li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="content-item cur">1</div>
+      <div class="content-item">2</div>
+      <div class="content-item">3</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="./../js/tabs.js">
+  </script>
+  <script type="text/javascript">
+    var tab = new Tab({
+      tabClassName: 'tab-item',
+      contentClassName: 'content-item'
+    });
+
+  </script>
+</body>
+</html>

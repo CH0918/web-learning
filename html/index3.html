@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    //  function Teacher() {
+    //    this.name = 'cangjingkong';
+    //  }
+    //  var teacher = new Teacher();
+
+
+    //  function Student() {
+
+    //  }
+    //  Student.prototype = teacher;
+    //  var student = new Student();
+    //  student.name = 'hahah';
+    //  console.log(student);
+    // function a() {
+    //   function test() {
+    //     console.log(2);
+    //   }
+    //   var test = 1;
+    //   test();
+    // }
+    // a();
+
+    // var name = '222';
+    // var a = {
+    //   name: '111',
+    //   say: function() {
+    //     console.log(this.name);
+    //   }
+    // }
+    // var fun = a.say;
+    // fun();
+    // a.say();
+
+
+    // var b = {
+    //   name: '333',
+    //   say: function() {
+    //     var fun = function() {
+    //       console.log(this.name);
+    //     };  
+    //     fun.call(this);
+    //   }
+    // };
+    // b.say();
+
+    // function Foo() {
+    //   getName = function() {
+    //     console.log(1);
+    //   }
+    //   return this;
+    // }
+    // Foo.getName = function() {
+    //   console.log(2);
+    // }
+    // Foo.prototype.getName = function() {
+    //   console.log(3);
+    // }
+    // var getName = function() {
+    //   console.log(4);
+    // }
+    // function getName() {
+    //   console.log(5);
+    // }
+    // Foo.getName();//2
+    // getName(); // 4
+    // Foo().getName(); // 1
+    // new Foo.getName(); // ??
+    // new Foo().getName(); // 3
+    // new new Foo().getName(); // ??
+
+    // var arr = new Array('1');
+    // console.log(arr);
+
+    // var arr = [1, 2, 3];
+    // console.log(arr.push(5, 2, 4));
+    // console.log(arr);
+    // console.log(arr.unshift(1, 2, 3));
+    // console.log(arr);
+    // console.log(arr.splice(1, 1, 4, 5));
+    // console.log(arr);
+
+
+    // 改变数组本身的方法 push unshift pop shift splice sort reverse 
+    // 1.用splice方法重写数组原型上unshift 方法 myUnshift
+    // Array.prototype.myUnshift = function() {
+    //   var _self = this;
+    //   var args = arguments;
+    //   for (var i = 0; i < args.length; i++) {
+    //     _self.splice(0, 0, args[i]);
+    //   }
+    //   return _self.length;
+    // }
+    // var arr = [1, 2, 3];
+    // console.log(arr.myUnshift(4, 5, 6)); 
+    // console.log(arr);
+
+    // 2.按照字节数排序下列数组
+    // var strArr = ['我爱你', 'Okaaaaa', 'Hello', '你说WHAT', '可以'];
+    // strArr.sort(function(a, b) {
+    //   var aByteLength = getStrBytes(a);
+    //   var bByteLength = getStrBytes(b);
+    //   return aByteLength - bByteLength;
+    // })
+    // function getStrBytes(str) {
+    //   var byteLength = str.length;
+    //   for (var i = 0; i < str.length; i++) {
+    //     if (str[i].charCodeAt() > 127) {
+    //       byteLength++;
+    //     }
+    //   }
+    //   return byteLength;
+    // } 
+    // console.log(strArr);
+
+
+    // concat
+
+    // slice
+    // var arr = ['a', 'b', 'c', 'd', 'e', 'f'];
+    // // [),截取下表左闭右开区间的数
+    // var arr1 = arr.slice(2, 4);
+    // console.log(arr1);
+
+    // join
+    
+    // split
+    // var obj = {
+    //   length: 1,
+    //   '0': 'haha',
+    // };
+    // Object.prototype.push = Array.prototype.push;
+    // obj.push(2);
+    // console.log(obj);
+
+    // 1.数组去重
+    // Array.prototype.unique = function() { 
+    //   var tempObj = {};
+    //   for (key in this) {
+    //     if (this.hasOwnProperty(key)) {
+    //       tempObj[this[key]] = this[key];
+    //     }
+    //   }
+    //   var result = [];
+    //   for(key in tempObj) {
+    //     result.push(tempObj[key]);
+    //   }
+    //   return result;
+    // }
+    // var arr = [1, 1, 2, 3, 4, 5, 'a', 'a', null, null, undefined];
+    // console.log(arr.unique());
+    // // 2.myTypeof 能返回 array object object-number object-boolean object-str ing null undefined string number boolean
+    // function myTypeof(val) {
+    //   if (typeof val !== 'object') {
+    //     return typeof(val);
+    //   }
+    //   var toStr = Object.prototype.toString;
+    //   var arrayType = '[object Array]',
+    //       stringType = '[object String]',
+    //       numberType = '[object Number]',
+    //       booleanType = '[object Boolean]',
+    //       nullType = '[object Null]',
+    //       objType = '[object Object]';
+    //   switch(toStr.call(val)) {
+    //     case arrayType:
+    //       return 'array'
+    //     case stringType:
+    //       return 'object-string'
+    //     case numberType:
+    //       return 'object-number'
+    //     case booleanType:
+    //       return 'object-boolean'
+    //     case nullType:
+    //       return 'null'
+    //     case objType:
+    //       return 'object'
+    //   }
+    // }
+    // console.log(myTypeof(null));
+    // console.log(myTypeof(1));
+    // console.log(undefined);
+    // console.log(myTypeof('abc'));
+    // console.log(myTypeof(new Number(1)));
+    // console.log(myTypeof(new String('1')));
+    // console.log(myTypeof(new Boolean(true)));
+    // console.log(myTypeof([1, 2]));
+
+    // var test = function a() {
+    //   console.log(test.name);
+    // }
+    // console.log(typeof a);
+
+  </script>
+</body>
+</html>
