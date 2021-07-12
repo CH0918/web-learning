@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选项卡</title>
+  <link rel="stylesheet" href="style.css"  type="text/css"></link>
+</head>
+
+<body>
+  <div class="tab-wrapper">
+    <div class="tabs clearfix">
+      <ul class="tab-list">
+        <li class="tab-item active">选项1</li>
+        <li class="tab-item">选项2</li>
+        <li class="tab-item">选项3</li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="content-item cur">1</div>
+      <div class="content-item">2</div>
+      <div class="content-item">3</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="./index.js">
+  </script>
+  <script type="text/javascript">
+    var tab = new Tab({
+      tabClassName: 'tab-item',
+      contentClassName: 'content-item'
+    });
+
+  </script>
+</body>
+
+</html>

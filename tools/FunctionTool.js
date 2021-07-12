@@ -3,13 +3,13 @@ function getScrollOffset() {
   if (window.pageXOffset) {
     return {
       left: window.pageXOffset,
-      top: window.pageYOffset
-    }
+      top: window.pageYOffset,
+    };
   } else {
     return {
       left: document.body.scrollLeft + document.documentElement.scrollLeft,
-      top: document.body.scrollTop + document.documentElement.scrollTop
-    }
+      top: document.body.scrollTop + document.documentElement.scrollTop,
+    };
   }
 }
 
@@ -18,20 +18,20 @@ function getViewportSite() {
   if (window.innerWidth) {
     return {
       width: window.innerWidth,
-      height: window.innerHeight
-    }
+      height: window.innerHeight,
+    };
   } else {
     if (document.compatMode === 'BackCompat') {
       // 怪异模式
       return {
         width: document.body.clientWidth,
-        height: document.body.clientHeight
-      }
+        height: document.body.clientHeight,
+      };
     } else {
       return {
         width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight
-      }
+        height: document.documentElement.clientHeight,
+      };
     }
   }
 }
@@ -41,19 +41,21 @@ function getScrollSize() {
   if (document.body.scrollWidth) {
     return {
       width: document.body.scrollWidth,
-      height: document.body.scrollHeight
-    }
+      height: document.body.scrollHeight,
+    };
   } else {
     return {
       width: document.documentElement.scrollWidth,
-      height: document.documentElement.scrollHeight
-    }
+      height: document.documentElement.scrollHeight,
+    };
   }
 }
 // 获取元素的计算样式
 function getSite(ele, prop) {
   if (window.getComputedStyle) {
-    return prop ? window.getComputedStyle(ele, null)[prop] : window.getComputedStyle(ele, null);
+    return prop
+      ? window.getComputedStyle(ele, null)[prop]
+      : window.getComputedStyle(ele, null);
   } else {
     return prop ? window.currentStyle[prop] : window.currentStyle;
   }
@@ -62,17 +64,17 @@ function getSite(ele, prop) {
 function getElementDocPosition(el) {
   // offsetParent 具有定位的父级元素
   var parent = el.offsetParent,
-      offsetLeft = el.offsetLeft,
-      offsetTop = el.offsetTop;
-  while(parent) {
+    offsetLeft = el.offsetLeft,
+    offsetTop = el.offsetTop;
+  while (parent) {
     offsetLeft += parent.offsetLeft;
     offsetTop += parent.offsetTop;
     parent = parent.offsetParent;
   }
   return {
     left: offsetLeft,
-    top: offsetTop
-  }
+    top: offsetTop,
+  };
 }
 
 // 绑定事件 兼容IE
@@ -110,13 +112,12 @@ function cancelBubble(e) {
 // 获取鼠标点击坐标
 function pagePos(e) {
   var sLeft = getScrollOffset().left,
-      sTop = getScrollOffset().top,
-      cLeft = document.documentElement.clientLeft,
-      cTop = document.documentElement.clientTop;
-  
+    sTop = getScrollOffset().top,
+    cLeft = document.documentElement.clientLeft,
+    cTop = document.documentElement.clientTop;
+
   return {
     x: e.clientX + sLeft - cLeft,
-    y: e.clientY + sTop - cTop
-  }
+    y: e.clientY + sTop - cTop,
+  };
 }
-

@@ -15,7 +15,7 @@
 // }
 
 // 插件
-;(function() {
+(function () {
   function Tab(options) {
     this.tabClassName = options.tabClassName;
     this.contentClassName = options.contentClassName;
@@ -24,23 +24,27 @@
   Tab.prototype = {
     bindEvent() {
       var tabClassName = this.tabClassName,
-          contentClassName = this.contentClassName;
+        contentClassName = this.contentClassName;
       var tabList = document.getElementsByClassName(tabClassName),
-          contentList = document.getElementsByClassName(contentClassName),
-          tabListLen = tabList.length;
+        contentList = document.getElementsByClassName(contentClassName),
+        tabListLen = tabList.length;
       for (var i = 0; i < tabListLen; i++) {
-        (function(i) {
-          tabList[i].addEventListener('click', function() {
-            for (var j = 0; j < tabListLen; j++) {
-              tabList[j].className = tabClassName;
-              contentList[j].className = contentClassName;
-            }
-            this.className += ' active';
-            contentList[i].className += ' cur'
-          }, false);
-        })(i)
+        (function (i) {
+          tabList[i].addEventListener(
+            'click',
+            function () {
+              for (var j = 0; j < tabListLen; j++) {
+                tabList[j].className = tabClassName;
+                contentList[j].className = contentClassName;
+              }
+              this.className += ' active';
+              contentList[i].className += ' cur';
+            },
+            false
+          );
+        })(i);
       }
-    }
-  }
+    },
+  };
   window.Tab = Tab;
-})()
+})();

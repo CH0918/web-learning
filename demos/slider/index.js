@@ -12,34 +12,34 @@
 //       sliderItems[j].className += ' active';
 //     }
 //   })(i);
-// } 
+// }
 
-;(function() {
+(function () {
   function Slider(option) {
     this.option = option;
     this.sliders = document.getElementsByClassName(option.sliderItem);
     this.thumds = document.getElementsByClassName(option.thumdItem);
     this.bindEvent();
   }
-  Slider.prototype.bindEvent = function() {
+  Slider.prototype.bindEvent = function () {
     var sliders = this.sliders,
-        thumds = this.thumds;
+      thumds = this.thumds;
 
     var _self = this;
-    for(var i = 0; i < thumds.length; i++) {
-      (function(j){
-        thumds[j].onclick = function() {
-          for(var k = 0; k < thumds.length; k++) {
+    for (var i = 0; i < thumds.length; i++) {
+      (function (j) {
+        thumds[j].onclick = function () {
+          console.log(1111);
+          for (var k = 0; k < thumds.length; k++) {
             thumds[k].className = _self.option.thumdItem;
             sliders[k].className = _self.option.sliderItem;
           }
-          thumds[j].className += ' cur';
-          this.className += ' active';
-        }
-      })(i)
+          this.className += ' cur';
+          sliders[j].className += ' active';
+          console.log(this);
+        };
+      })(i);
     }
-    
-  }
+  };
   window.Slider = Slider;
-}())
-
+})();

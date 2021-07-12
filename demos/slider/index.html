@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</link>
+</head>
+
+<body>
+  <div class="slider-wrap">
+    <div class="slider">
+      <ul class="sliders-list">
+        <li class="slider-item active">
+          <img src="./img/1.jpeg" alt="">
+        </li>
+        <li class="slider-item">
+          <img src="./img/2.jpeg" alt="">
+        </li>
+        <li class="slider-item">
+          <img src="./img/3.jpeg" alt="">
+        </li>
+      </ul>
+    </div>
+
+    <div class="thumds">
+      <ul class="thumds-list">
+        <li class="thumd-item cur">
+          <a href="javascript:;">
+            <img src="./img/1.jpeg" alt="">
+          </a>
+        </li>
+        <li class="thumd-item">
+          <a href="javascript:;">
+            <img src="./img/2.jpeg" alt="">
+          </a>
+        </li>
+        <li class="thumd-item">
+          <a href="javascript:;">
+            <img src="./img/3.jpeg" alt="">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="./index.js"></script>
+<script type="text/javascript">
+  var slider = new Slider({ sliderItem: 'slider-item', thumdItem: 'thumd-item' });
+</script>
+
+</html>
