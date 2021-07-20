@@ -1,0 +1,32 @@
+body, div, ul {
+	margin: 0;
+	padding: 0;
+}
+div {
+	box-sizing: border-box;
+}
+ul {
+	list-style: none;
+}
+
+.game-box {
+	width: 500px;
+	height: 500px;
+	background-color: #000;
+	margin: 50px auto;
+}
+.snake {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.snake-point {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: green;
+	border-radius: 50%;
+}
+.snake-head {
+	background-color: red;
+}
